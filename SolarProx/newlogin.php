@@ -62,9 +62,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
-                            
+
+
+
+			//retrofit begin			    
+
+
+				  if ($_POST['User'] == 'Administrator'){
+                                            echo '<br> Admin';
+                                            $_SESSION["priv"] = "Admin";
+                                            echo '<script> window.location.replace("./Home_Admin.php")</script>';
+                                        }
+                                        else{
+                                            echo '<br> User';
+                                            $_SESSION["priv"] = "User";
+                                            echo '<script> window.location.replace("./Home.php")</script>';
+                                        }
+
+
+
+				//end retrofit
+				
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+//                            header("location: welcome.php");
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";

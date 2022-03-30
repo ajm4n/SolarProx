@@ -33,14 +33,14 @@ if ($_SESSION["priv"] == "Admin"){
     echo '
             <a href="./Home_Admin.php">Admin Home</a>
             <a class="active" href="./Home.php">Student Home</a>
-            <a style="position: absolute; top: 0px;right: 0px;" href="./Login.php">Logout</a>
+            <a style="position: absolute; top: 0px;right: 0px;" href="./logout.php">Logout</a>
             </div>
             <div class="col-md-6">
                 <h1>SolarProx</h1>
 		<h2>Your solution to penetration testing with Proxmox</h2>
             </div>
             <div class="col-md-3">
-                <a style="position: absolute; top: 0px;right: 0px;" href="./Login.php">Logout</a>
+                <a style="position: absolute; top: 0px;right: 0px;" href="./logout.php">Logout</a>
             </div>
         </div>
     </div>

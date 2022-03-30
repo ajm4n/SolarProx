@@ -2,13 +2,10 @@
 #                                     Created by: Force of Mercury                              #
 #                     This bash script takes variables from  Proxmox.config to print            #
 #                     out all info given when running a GET request to                          #
-#                     $HOST/api2/json/nodes/$NODE/qemu/$VMID/config. There is no                #
-#                     additional input required to run this command. The info in config         #
-#                     gives specific box info and is used to get box notes as well. user        #
-#                     will also have to give VMID to specify which VM they want the info for.   #
+#                     $HOST/api2/json/nodes/$NODE/qemu. There is no additional input required   #
+#                     to run this command.                                                      #
 #                                                                                               #
-#                                                                      int                      #
-#                     Example command to start: ./getMachineNotes.sh [VMID]                     #
+#                     Example command to start: ./getAllMachineInfo.sh                          #
 #-----------------------------------------------------------------------------------------------#
 
 #!/bin/bash
@@ -21,7 +18,7 @@ decodeDataFromJson(){
             | sed 's/\"\:\"/\|/g' \
             | sed 's/[\,]/ /g' \
             | sed 's/\"// g' \
-            | grep -w "^$2" \
+            | grep -w $2 \
             | awk -F "|" '{print $2}'`
 }
 
@@ -39,11 +36,11 @@ CSRF=$(decodeDataFromJson $DATA 'CSRFPreventionToken')
 #---------------------------------------------------------------------------------------------------------------------------------------------
 
 NODE="$node" #pulls node from Proxmox.config and sets it for Rollback command
-VMID=${1} #user has to specify VMID of VM they are rolling back. First parameter when running command
 
 #---------------------------------------------------------------------------------------------------------------------------------------------
 #Runs curl command using PVEAuthCookie and CSRFPreventionToken to run a POST command to start the targeted VM.
-#Variables being used: $TICKET , $CSRF , $HOST , $NODE , $VMID
-START_TASK_DATA=`curl -s -k -b "PVEAuthCookie=$TICKET" -H "CSRFPreventionToken: $CSRF" -X GET $HOST/api2/json/nodes/$NODE/qemu/$VMID/config`
-echo $START_TASK_DATA #prints output from GET request
+#Variables being used: $TICKET , $CSRF , $HOST , $NODE ,
+START_TASK_DATA=`curl -s -k -b "PVEAuthCookie=$TICKET" -H "CSRFPreventionToken: $CSRF" -X GET $HOST/api2/json/nodes/$NODE/qemu`
+START_TASK_RESULT=$(decodeDataFromJson $START_TASK_DATA 'data')
+echo $START_TASK_DATA #prints out result data
 #---------------------------------------------------------------------------------------------------------------------------------------------
