@@ -19,7 +19,7 @@ decodeDataFromJson(){
             | sed 's/\"\:\"/\|/g' \
             | sed 's/[\,]/ /g' \
             | sed 's/\"// g' \
-            | grep -w $2 \
+            | grep -w "^$2" \
             | awk -F "|" '{print $2}'`
 }
 
