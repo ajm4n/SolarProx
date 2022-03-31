@@ -8,7 +8,7 @@ $_SESSION = array();
 // Destroy the session.
 session_destroy();
  
-// Redirect to login page
-header("location: newlogin.php");
+// Redirect to login options page
+header("location: loginoptions.php");
 exit;
 ?>
