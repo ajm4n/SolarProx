@@ -68,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			//retrofit begin			    
 
 
-				  if ($_POST['User'] == 'Administrator'){
+				  if ($_POST['username'] == 'Administrator'){
                                             echo '<br> Admin';
                                             $_SESSION["priv"] = "Admin";
                                             echo '<script> window.location.replace("./Home_Admin.php")</script>';
