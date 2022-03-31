@@ -54,7 +54,7 @@ elseif ($_SESSION["priv"] == "User"){
                 <h1>SolarProx</h1>
 		<h2>Your solution to penetration testing with Proxmox</h2>
             <div class="col-md-3">
-            <a style="position: absolute; top: 0px;right: 0px;" href="./Login.php">Logout</a>
+            <a style="position: absolute; top: 0px;right: 0px;" href="./logout.php">Logout</a>
             </div>
         </div>
     </div>

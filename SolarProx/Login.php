@@ -99,6 +99,7 @@ setcookie("SessionID", session_id(), time()+3600);
                         <label for="Pass">Password:</label>
                         <input type="password" id="Pass" name="Pass"><br><br>
                         <input type="submit" value="Login">
+			<p>Need to login through a different method? <a href="loginoptions.php">Click here for login options.</a>.</p>
                     </form>
                     
                 </div>
