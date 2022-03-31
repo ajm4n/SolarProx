@@ -8,6 +8,7 @@ SolarProx Login Options
 <style>
 body{
 	background-color: linen;
+	text-align: center;
 	font-family: Arial;
 }
 
