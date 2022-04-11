@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"{
                     }
 
                 } else {
-                    echo "Oops! Something went wrong, please try again later."
+                    echo "Oops! Something went wrong, please try again later.";
                 }
                 //close statement
 
