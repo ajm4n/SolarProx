@@ -85,7 +85,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"{
     <input type="text" name="flagdata" class="form-control <?php echo (!empty($flagdata_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $flagdata; ?>">
     <span class="invalid-feedback"><?php echo $flagdata_err; ?></span>
 </div>
-
+<div class="form-group">
+    <input type="submit" class="btn btn-primary" value="Submit">
+</div>
 </body>
 
 </html>
