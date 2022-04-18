@@ -120,6 +120,8 @@ else{
                                 $button4 =  "<td><form action='ViewMachine.php' method='post'><input type='submit' name='".$BoxID."' value='View Machine' /></form></td>";
                                 echo $button3;
                                 echo $button4;
+				$button5 =  "<td><form action='scoringbeta.php' method='post'><input type='submit' name='".$BoxID."' value='Submit Flag' /></form></td>";
+				echo $button5;
 
                                 
 
