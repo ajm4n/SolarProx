@@ -83,6 +83,7 @@ if ($_SESSION["priv"] != "Admin"){
                         $start = 'start'.$BoxID;
                         $stop = 'stop'.$BoxID;
                         $rollback = 'rollback'.$BoxID;
+			$submit = 'submit'.$BoxID;
                         if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST[$start]))
                                 {
                             start($BoxID);
@@ -94,6 +95,10 @@ if ($_SESSION["priv"] != "Admin"){
                         if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST[$rollback]))
                                 {
                             rollback($BoxID);
+                            }
+			if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST[$submit]))
+                                {
+                            submit($BoxID);
                             }
                         echo "<tr>";
 
@@ -110,9 +115,11 @@ if ($_SESSION["priv"] != "Admin"){
                         $button1 =  "<td><form action='Home_Admin.php' method='post'><input type='submit' name='".$start."' value='Start' /></form></td>";
                         $button2 =  "<td><form action='Home_Admin.php' method='post'><input type='submit' name='".$stop."' value='Stop' /></form></td>";
                         $button3 =  "<td><form action='Home_Admin.php' method='post'><input type='submit' name='".$rollback."' value='Rollback' /></form></td>";
+			$button4 =  "<td><form action='Home_Admin.php' method='post'><input type='submit' name='".$submit."' value='Submit' /></form></td>";
                         echo $button1;
                         echo $button2;
                         echo $button3;
+			echo $button4;
 
                         
 
