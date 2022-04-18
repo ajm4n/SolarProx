@@ -77,7 +77,7 @@ else{
             <!--- copy from here to the end of the section div to create
             a new category ---->
             <div class="section">
-                <h3>Avalible Boxes</h3>
+                <h3>Available Boxes</h3>
 
                 <div class="sectionBody">
 
