@@ -89,7 +89,7 @@ else{
                     $result = shell_exec('bash getAllMachineInfo.sh ');
                     echo "<pre>$result</pre>";
 
-                    echo '<table id="myTable" style="width: 100%"><tr class="first"><th onclick="sortTable(0)">Box Name</th><th>Box Status&emsp;</th><th>Rollback&emsp;</th><th>View Machine&emsp;</th></tr>';
+                    echo '<table id="myTable" style="width: 100%"><tr class="first"><th onclick="sortTable(0)">Box Name</th><th>Box Status&emsp;</th><th>Rollback&emsp;</th><th>View Machine&emsp;</th><th>Submit Flag&emsp;</th></tr>';
 
                     $BoxList = json_decode($result);
                     $List = $BoxList -> data;
