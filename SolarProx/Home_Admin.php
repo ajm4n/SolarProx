@@ -24,6 +24,13 @@
 
 </head>
 <body onload="sortTable(0)"> 
+	
+<form>
+  <label for="flag">Flag:</label><br>
+  <input type="text" id="flag" name="flag"><br>
+  <input type="submit" value="Submit">
+</form>
+
 
 <?php
 if ($_SESSION["priv"] == "Admin"){
