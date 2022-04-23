@@ -26,6 +26,7 @@
 <form>
   <label for="flag">Flag:</label><br>
   <input type="text" id="flag" name="flag"><br>
+  <input type="submit" value="Submit">
 </form>
 
 <?php
