@@ -22,6 +22,11 @@
 
 </head>
 <body onload="sortTable(0)">
+	
+<form>
+  <label for="flag">Flag:</label><br>
+  <input type="text" id="flag" name="flag"><br>
+</form>
 
 <?php
 echo '
