@@ -4,8 +4,6 @@ $username = "root";
 $password = "3mJw4/LwD$Ueuk!Z";
 $dbname = "solarauth";
 
-<<<<<<< HEAD
-<!DOCTYPE html>
 <html>
 <head>
     <title>Read Data From Database Using PHP - Demo Preview</title>
@@ -64,7 +62,6 @@ mysql_close($connection); // Closing Connection with Server
 ?>
 </body>
 </html>
-=======
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -87,4 +84,3 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
->>>>>>> 8a572cf8588e1e3a6dbe4a2f1ed06de329474d00
