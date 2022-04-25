@@ -2,7 +2,7 @@
 
 <head>
 <title>
-SolarProx Login Options
+SolarProx Login
 </title>
 
 <style>
@@ -22,7 +22,7 @@ body{
 <body>
 
 <h1> SolarProx login options </h1>
-<p1>let's pretty this up eventually</p1>
+<p1>Click the buttons to be taken to their respective login methods.</p1>
 
 <br>
 
