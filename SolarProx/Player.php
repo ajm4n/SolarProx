@@ -1,4 +1,10 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "3mJw4/LwD$Ueuk!Z";
+$dbname = "solarauth";
 
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,3 +64,27 @@ mysql_close($connection); // Closing Connection with Server
 ?>
 </body>
 </html>
+=======
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$db_username = $_GET["Username"];
+
+$sql = "SELECT id, username, created_at FROM Users WHERE username = $db_username";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["created_at"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
+>>>>>>> 8a572cf8588e1e3a6dbe4a2f1ed06de329474d00
