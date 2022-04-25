@@ -24,13 +24,13 @@ if ($conn->connect_error) {
 //$db_username = $_GET["username"];
 
 
-$sql = "SELECT id, username, created_at FROM users";
+$sql = "SELECT id, username, created_at, score FROM users";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["username"]. " " . $row["created_at"]. "<br>";
+        echo "id: " . $row["id"]. " - Name: " . $row["username"]. " " . $row["created_at"]. " - Score:" . $row["score"]. "<br>";
     }
 } else {
     echo "0 results";
