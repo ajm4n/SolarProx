@@ -39,10 +39,7 @@ if ($_SESSION["priv"] == "Admin"){
         <div class="row" id="topnav">
             <div class="col-md-3">
                 <a class="active" href="./Home_Admin.php">Admin Home</a>
-                <a href="./Home.php">Student Home</a>
-            </div>
-		  <div class="col-md-3">
-                <a class="active" href="./Player.php">Player Info</a>
+                <a href="./Player.php">Player Info</a>
             </div>
             <div class="col-md-6">
                 <h1>SolarProx</h1>
