@@ -31,7 +31,7 @@ HOST="$host" #pulls host address from Proxmox.config for commands using $HOST
 #---------------------------------------------------------------------------------------------------------------------------------------------
 #Runs curl command to retrieve Proxmox user's PVEAuthCookie and CSRFPreventionToken
 #Variables being used: $PROX_USERNAME , $PROX_PASSWORD , $HOST
-DATA=`curl -s -k -d "username=$PROX_USERNAME&password=$PROX_PASSWORD" $HOST/api2/json/access/ticket`
+DATA=`curl -s -k -d "realm=pve&username=$PROX_USERNAME&password=$PROX_PASSWORD" $HOST/api2/extjs/access/ticket`
 TICKET=$(decodeDataFromJson $DATA 'ticket') #sets $TICKET value
 CSRF=$(decodeDataFromJson $DATA 'CSRFPreventionToken') #sets CSRF value
 #---------------------------------------------------------------------------------------------------------------------------------------------
@@ -43,6 +43,6 @@ SNAPSHOT_NAME="$snapshot" #user has to specify SNAPSHOT_NAME of VM that they wan
 #---------------------------------------------------------------------------------------------------------------------------------------------
 #Runs curl command with PVEAuthCookie and CSRFPreventionToken to run a POST command to rollback the targeted VM.
 #Variables being used: $TICKET , $CSRF , $HOST , $NODE , $TARGET_VMID , $SNAPSHOT_NAME
-ROLLBACK_TASK_DATA=`curl -s -k -b "PVEAuthCookie=$TICKET" -H "CSRFPreventionToken: $CSRF" -X POST $HOST/api2/json/nodes/$NODE/qemu/$TARGET_VMID/snapshot/$SNAPSHOT_NAME/rollback`
+ROLLBACK_TASK_DATA=`curl -s -k -b "PVEAuthCookie=$TICKET" -H "CSRFPreventionToken: $CSRF" -X POST $HOST/api2/extjs/nodes/$NODE/qemu/$TARGET_VMID/snapshot/$SNAPSHOT_NAME/rollback`
 ROLLBACK_TASK_RESULT=$(decodeDataFromJson $ROLLBACK_TASK_DATA 'data')
 #---------------------------------------------------------------------------------------------------------------------------------------------

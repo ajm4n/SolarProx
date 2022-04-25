@@ -30,7 +30,7 @@ HOST="$host" #pulls host address from Proxmox.config for commands using $HOST
 #---------------------------------------------------------------------------------------------------------------------------------------------
 #Runs curl command to retrieve Proxmox user's PVEAuthCookie and CSRFPreventionToken
 #Variables being used: $PROX_USERNAME , $PROX_PASSWORD , $HOST
-DATA=`curl -s -k -d "username=$PROX_USERNAME&password=$PROX_PASSWORD" $HOST/api2/json/access/ticket`
+DATA=`curl -s -k -d "realm=pve&username=$PROX_USERNAME&password=$PROX_PASSWORD" $HOST/api2/extjs/access/ticket`
 TICKET=$(decodeDataFromJson $DATA 'ticket')
 CSRF=$(decodeDataFromJson $DATA 'CSRFPreventionToken')
 #---------------------------------------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ NODE="$node" #pulls node from Proxmox.config and sets it for Rollback command
 #---------------------------------------------------------------------------------------------------------------------------------------------
 #Runs curl command using PVEAuthCookie and CSRFPreventionToken to run a POST command to start the targeted VM.
 #Variables being used: $TICKET , $CSRF , $HOST , $NODE ,
-START_TASK_DATA=`curl -s -k -b "PVEAuthCookie=$TICKET" -H "CSRFPreventionToken: $CSRF" -X GET $HOST/api2/json/nodes/$NODE/qemu`
+START_TASK_DATA=`curl -s -k -b "PVEAuthCookie=$TICKET" -H "CSRFPreventionToken: $CSRF" -X GET $HOST/api2/extjs/nodes/$NODE/qemu`
 START_TASK_RESULT=$(decodeDataFromJson $START_TASK_DATA 'data')
 echo $START_TASK_DATA #prints out result data
 #---------------------------------------------------------------------------------------------------------------------------------------------
