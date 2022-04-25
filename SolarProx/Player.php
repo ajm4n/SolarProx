@@ -16,6 +16,11 @@
             <div class="divD">
                 <p>Click On Menu</p>
                 <?php
+
+		ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
                 $connection = mysql_connect("localhost", "root", "3mJw4/LwD$Ueuk!Z"); // Establishing Connection with Server
                 $db = mysql_select_db("solarauth", $connection); // Selecting Database
                 //MySQL Query to read data
